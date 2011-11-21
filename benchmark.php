@@ -77,3 +77,24 @@ function benchmark(array $tests)
     foreach($tests as $name => $bench)
         benchmarkRunner($name, $bench);
 }
+
+/**
+ * EXAMPLE USE:
+ *
+ * benchmark(array(
+ *  "Test benchmark" => function() { rand(); }));
+ *
+ *
+ *  ----
+ Benchmarking 'Test benchmark'
+ Calculating estimate
+ 15000 iterations will take 0 seconds
+ Starting benchmarks
+ 15000
+ Mean: 1.644565264384E-5
+ Standard deviation: 1.6465408526582E-6
+ Wrote test-benchmark.tsv
+
+ * The tsv file is kernel density file. For example with gnuplot it would be plotted with
+ * plot "test-benchmark.tsv" u 1:2 smooth kdensity
+ */
